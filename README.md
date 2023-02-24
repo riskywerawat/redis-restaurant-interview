@@ -3,7 +3,7 @@
 
 1. Run `npm i` command
 2. Run `npm start` or `npm run dev`  command
-3. Open URL http://localhost:3000/test
+3. Open URL http://localhost:3002/redis
 4. run redis follow step below
 
 ### Steps to install and run Redis

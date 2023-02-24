@@ -242,6 +242,7 @@ exports.exists = (req, res) =>{
             console.log('Redis client connected');
             
             redisClient.exists(req.body.key, (err,v) => {
+                console.log(err, v);
                 if ( v == 1 ){
                     response = { 
                         "respCode" : "1",
