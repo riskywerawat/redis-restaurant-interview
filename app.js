@@ -9,13 +9,12 @@ const helmet = require('helmet')
 const cors = require('cors')
 const rateLimit = require("express-rate-limit");
 const timeout = require('express-timeout-handler');
-// const indexRouter = require('./routes/index');
-// const nookRouter = require('./routes/nook');
+
 const redisRouter = require('./routes/redis');
 
-//const config = require('./config/config')
+
 const errorHandler = require('./middleware/errorHandler');
-// const passportJWT = require('./middleware/passportJWT');
+
 
 
 const app = express();
@@ -51,17 +50,13 @@ const metricsMiddleware = promBundle({includeMethod: true,includePath:
 true,customLabels:{project_name:'redist-restaurant-interview'}});
 app.use(metricsMiddleware);
 
-//app.use(logger('dev'));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//init passport
-//app.use(passport.initialize());
 
-// app.use('/', indexRouter);
-// app.use('/nook', nookRouter);
 app.use(bodyParser.json());
 app.use('/redis', redisRouter);
 
