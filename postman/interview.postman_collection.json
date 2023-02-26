@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "50ab5c33-7b39-4506-b7e9-2dfd91511691",
+		"name": "interview",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9281005"
+	},
+	"item": [
+		{
+			"name": "google-APIS",
+			"item": [
+				{
+					"name": "TextSearch",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Place Detail",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "getphotoRefence",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "redis-restaurant",
+			"item": [
+				{
+					"name": "Get Data from Redis",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n\t\"host\" : \"0.0.0.0\", \n\t\"port\" : \"6379\", \n\t\"key\" : \"Otis Fritsch\",\n    \"timeout\":10000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/redis/getRedis",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"redis",
+								"getRedis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set Data to Redis with expire time seccond",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"host\": \"0.0.0.0\",\n    \"port\": \"6379\",\n    \"key\": \"{{$randomFullName}}\",\n    \"value\": {\n        \"id\": \"test1\",\n        \"name\": \"test1\"\n    },\n    \"expired\": \"10000\",\n    \"timeout\": 10000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/redis/setRedisExpired",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"redis",
+								"setRedisExpired"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find key exist in Redis",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n\t\"host\" : \"0.0.0.0\", \n\t\"port\" : \"6379\", \n\t\"key\" : \"Vernon Haag\",\n    \"timeout\":10000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/redis/exists",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"redis",
+								"exists"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "be-restaurant",
+			"item": [
+				{
+					"name": "queryPlace",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"textsearch\":\"ลาดกระบัง\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/restaurant/queryPlace",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"restaurant",
+								"queryPlace"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getcontentProminence",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/restaurant/getcontentProminence",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"restaurant",
+								"getcontentProminence"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "placeDetail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"place_id\":\"xxx\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/restaurant/placeDetail",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"restaurant",
+								"placeDetail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getphotoRefence",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"photo_code\": \"AfLeUgPp_rWqfvsYjJCwZa8QZL4e_MmQKl6HuuA_kZ9z2WfyVDw-47jw8MHMkpoEYc3LzzcIO3Kt1gM1UDbGSA-nIfygSGibJJVt3-3MjnmKqG1c-CfJAwGOPV5lfQtME0NA1ZCKM3SZDw4G4LFw9ZewmgQAgRd4S890whrGErjJn8meGn_q\",\r\n    \"maxwidth\": 900\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/restaurant/getPhotoRefernce",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"restaurant",
+								"getPhotoRefernce"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
